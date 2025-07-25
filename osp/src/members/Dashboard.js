@@ -76,7 +76,6 @@ export default function Dashboard() {
   const [problemsProgress, setProblemsProgress] =  useState(null);
   const [problemsSolved, setProblemsSolved] = useState(0)
   const { user } = useAuth();
-  console.log(user.uid)
 
   useEffect(() => {
     const fetchProblems = async () => {
@@ -102,7 +101,6 @@ export default function Dashboard() {
     const fetchProblemsProgress = async () => {
       const progressRef = collection(db, "problems-progress", user.uid, "solved");
       const progressSnap = await getDocs(progressRef)
-      console.log(progressSnap)
       setProblemsSolved(progressSnap.docs.length)
     }
     fetchProblemsProgress();
@@ -117,7 +115,6 @@ export default function Dashboard() {
   
         // Progress calculation
         const videosData = videoSnap.docs.map(doc => doc.data());
-        console.log(videosData)
         let totalMinutes = 0;
         let totalWatched = 0;
   

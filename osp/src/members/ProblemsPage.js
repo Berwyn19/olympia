@@ -155,7 +155,7 @@ export default function ProblemsPage({ problems }) {
     }, [user]);
 
     return (
-        <MathJaxContext config={config}>
+        <MathJaxContext config={config} dynamic>
             <div className="flex h-screen">
                 {/* Left side: list of problems */}
                 <div className="w-1/3 border-r p-4 overflow-y-auto">
@@ -195,7 +195,7 @@ export default function ProblemsPage({ problems }) {
                     ))}
                 </div>
 
-                <MathJax>
+                <MathJax dynamic>
                     {activeTab === 'problem' && (
                     <div className="space-y-4">
                         <h3 className="text-xl font-semibold mb-2">{selectedProblem.title}</h3>
